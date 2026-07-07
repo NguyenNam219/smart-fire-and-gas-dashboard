@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* === HÀNG NGANG === */
+.row-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 18px 15px;
+    border-radius: 14px;
+    font-size: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.card strong {
+    font-size: 18px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Màu sắc card */
+#temp { border-left: 5px solid #ff6b6b; }
+#humidity { border-left: 5px solid #4ecdc4; }
+#gas { border-left: 5px solid #ffd93d; }
+#fire { border-left: 5px solid #ff0000; font-weight: bold; }
+#fan { border-left: 5px solid #6c5ce7; }
+#pump { border-left: 5px solid #0984e3; }
+
+/* === LỊCH SỬ === */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.history-header h2 {
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.btn-clear {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.btn-clear:hover {
+    background: rgba(255, 0, 0, 0.4);
+    border-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.history-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.history-list {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.history-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.empty-history {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-size: 18px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.history-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.history-time {
+    font-weight: bold;
+    color: #666;
+    min-width: 80px;
+    font-size: 14px;
+}
+
+.history-icon {
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+.history-message {
+    flex: 1;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Màu sắc theo loại sự kiện */
+.event-danger {
+    background: #fff5f5;
+    border-left-color: #dc3545;
+}
+
+.event-danger .history-message {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.event-warning {
+    background: #fffbf0;
+    border-left-color: #ffc107;
+}
+
+.event-warning .history-message {
+    color: #856404;
+}
+
+.event-info {
+    background: #f0f7ff;
+    border-left-color: #17a2b8;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .row-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .row-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .card {
+        padding: 12px 10px;
+        font-size: 13px;
+        min-height: 65px;
+    }
+    
+    .card strong {
+        font-size: 15px;
+    }
+    
+    .history-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .history-item {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .history-time {
+        min-width: 60px;
+        font-size: 12px;
+    }
+    
+    .history-message {
+        font-size: 13px;
+    }
+    
+    .btn-clear {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+}
