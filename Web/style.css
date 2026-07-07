@@ -1,0 +1,24 @@
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    margin:10px;
+    border-radius:10px;
+    font-size:20px;
+    box-shadow:0 0 5px gray;
+}
+
+canvas{
+    background:white;
+    margin-top:20px;
+    padding:10px;
+}
