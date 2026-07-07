@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Smart Fire Dashboard</title>
-
     <link rel="stylesheet" href="style.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
+    <div class="container">
+        <h1>🔥 Smart Fire & Gas Dashboard</h1>
+        
+        <!-- === HÀNG NGANG THÔNG SỐ === -->
+        <div class="row-grid">
+            <div class="card" id="temp">🌡️ Temperature: <strong>-- °C</strong></div>
+            <div class="card" id="humidity">💧 Humidity: <strong>-- %</strong></div>
+            <div class="card" id="gas">🧪 Gas Value: <strong>--</strong></div>
+            <div class="card" id="fire">🔥 Fire: <strong>--</strong></div>
+            <div class="card" id="fan">🌀 Fan: <strong>--</strong></div>
+            <div class="card" id="pump">💦 Pump: <strong>--</strong></div>
+        </div>
 
-    <h1>🔥 Smart Fire & Gas Dashboard</h1>
+        <!-- === NÚT XÓA LỊCH SỬ === -->
+        <div class="history-header">
+            <h2>📜 Lịch sử thay đổi</h2>
+            <button id="clearHistory" class="btn-clear">🗑️ Xóa lịch sử</button>
+        </div>
 
-    <div class="card" id="temp">Temperature:</div>
-
-    <div class="card" id="humidity">Humidity:</div>
-
-    <div class="card" id="gas">Gas:</div>
-
-    <div class="card" id="fire">Fire:</div>
-
-    <div class="card" id="fan">Fan:</div>
-
-    <div class="card" id="pump">Pump:</div>
-
-    <canvas id="tempChart"></canvas>
-
+        <!-- === BẢNG LỊCH SỬ === -->
+        <div class="history-container">
+            <div id="historyList" class="history-list">
+                <div class="empty-history">⏳ Đang chờ dữ liệu...</div>
+            </div>
+        </div>
+    </div>
+    
     <script type="module" src="app.js"></script>
-
 </body>
-
 </html>
